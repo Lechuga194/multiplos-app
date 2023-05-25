@@ -9,12 +9,18 @@ import { sortArrayOfObjectsByNumericProperty } from '@app/utils/Arrays';
   styleUrls: ['./multiple-records.component.scss'],
 })
 export class MultipleRecordsComponent implements OnInit {
-  constructor(private multipleService: RecordService) {}
+  constructor(private recordService: RecordService) {}
   records: Multiple[] = [];
 
   ngOnInit(): void {
-    this.multipleService.getRecords().subscribe((records) => {
+    this.recordService.getRecords().subscribe((records) => {
       this.records = sortArrayOfObjectsByNumericProperty(records, 'number') as Multiple[];
     });
   }
+
+  async onDeleteRecord(multiple: Multiple) {
+    if (multiple.id) await this.recordService.deleteRecord(multiple.id);
+  }
+
+  protected readonly Number = Number;
 }
