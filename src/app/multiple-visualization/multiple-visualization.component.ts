@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Multiple } from '@app/interfaces/multiple';
+import isMultiple from '../utils/Multiple';
+import { MultipleService } from '@app/services/multiple.service';
 
 @Component({
   selector: 'app-multiple-visualization',
@@ -6,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./multiple-visualization.component.scss'],
 })
 export class MultipleVisualizationComponent implements OnInit {
-  constructor() {}
+  @Input() inputNumber: number = 0;
+  selectedMultiple: Multiple = {} as Multiple;
+  constructor(private multipleService: MultipleService) {}
 
   ngOnInit(): void {}
+
+  async calculateMultiple(n: number): Promise<void> {
+    if (n <= 0) return;
+    const multiples = isMultiple(n, [3, 5, 7]);
+    //We create the object with the petition and the result
+    const multipleData: Multiple = { number: n, multiples };
+    await this.multipleService.saveMultiple(multipleData);
+    this.selectedMultiple = multipleData;
+  }
+
+  protected readonly Number = Number;
 }
