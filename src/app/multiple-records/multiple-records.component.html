@@ -1,19 +1,21 @@
-<ion-card class="ion-text-center ion-padding">
+<ion-card class="ion-text-center ion-padding card-fixed-height">
   <ion-card-title>Ordered requests</ion-card-title>
-  <ion-card-content>
-    <ion-list>
-      <ion-item *ngFor="let record of records">
-        <ion-grid>
-          <ion-col>
-            <ion-text>Number: {{ record.number }}</ion-text>
-          </ion-col>
-          <ion-col>
-            <ion-text>Result:</ion-text>
-            <ion-text class="{{ getMultipleClassColor(record.multiples[0]) }}"> [{{ record.multiples }}] </ion-text>
-          </ion-col>
-        </ion-grid>
-        <ion-button (click)="onDeleteRecord(record)"> Remove </ion-button>
-      </ion-item>
-    </ion-list>
-  </ion-card-content>
+  <ion-content>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let record of records">
+          <ion-grid>
+            <ion-col>
+              <ion-text>Number: {{ record.number }}</ion-text>
+            </ion-col>
+            <ion-col>
+              <ion-text>Result:</ion-text>
+              <ion-text class="{{ getMultipleClassColor(record.multiples[0]) }}"> [{{ record.multiples }}] </ion-text>
+            </ion-col>
+          </ion-grid>
+          <ion-button (click)="onDeleteRecord(record)"> Remove </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-content>
 </ion-card>
