@@ -6,9 +6,27 @@
       <ion-label position="floating">Please enter the number</ion-label>
       <ion-input #inputNumber type="number"></ion-input>
     </ion-item>
-    <ion-button class="ion-margin-top" (click)="calculateMultiple(Number(inputNumber.value))"> Calculate </ion-button>
-    <ion-text *ngIf="selectedMultiple.number > 0">
-      Resultado para {{ selectedMultiple.number }} {{ selectedMultiple.multiples }}
-    </ion-text>
+    <ion-button class="ion-margin-top ion-margin-bottom" (click)="calculateMultiple(Number(inputNumber.value))">
+      Calculate
+    </ion-button>
+    <div *ngIf="selectedMultiple.number > 0" class="ion-padding">
+      <ion-text color="primary">
+        <h2>Results for {{ selectedMultiple.number }}</h2>
+      </ion-text>
+    </div>
+    <div *ngIf="selectedMultiple.number">
+      <div *ngIf="selectedMultiple.multiples?.length; else noMultipleMessage">
+        <ion-text class="{{ classColor }}">
+          <h2>[{{ selectedMultiple.multiples }}]</h2>
+        </ion-text>
+      </div>
+      <ng-template #noMultipleMessage>
+        <h2>This number has no matching multiples for 3, 5 or 7</h2>
+      </ng-template>
+    </div>
   </ion-card-content>
+  <ion-card-subtitle *ngIf="selectedMultiple.multiples?.length">
+    <ion-icon name="ellipse" class="{{ classColor }}"></ion-icon>
+    <ion-label>The smallest multiple is {{ selectedMultiple.multiples[0] }}</ion-label>
+  </ion-card-subtitle>
 </ion-card>
