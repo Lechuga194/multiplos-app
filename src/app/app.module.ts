@@ -13,7 +13,7 @@ import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
+import { environment } from '@env/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { MultipleVisualizationComponent } from './multiple-visualization/multiple-visualization.component';
 import { MultipleRecordsComponent } from './multiple-records/multiple-records.component';
