@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "multiplos-app": {
+      "hosting": {
+        "multiplos-app": [
+          "multiplos-app"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "multiplos-app"
+  }
+}
