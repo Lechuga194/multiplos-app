@@ -2,7 +2,7 @@
   <ion-card-title>Ordered requests</ion-card-title>
   <ion-content>
     <ion-card-content>
-      <ion-list>
+      <ion-list *ngIf="records.length; else noRecordsMessage">
         <ion-item *ngFor="let record of records">
           <ion-grid>
             <ion-col>
@@ -24,6 +24,10 @@
           <ion-button (click)="onDeleteRecord(record)" color="danger"> Remove </ion-button>
         </ion-item>
       </ion-list>
+      <ng-template #noRecordsMessage>
+        <h2>There are no records saved, please submit one number.</h2>
+        <ion-icon name="alert-circle-outline"></ion-icon>
+      </ng-template>
     </ion-card-content>
   </ion-content>
 </ion-card>
