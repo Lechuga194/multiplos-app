@@ -2,6 +2,8 @@
   <ion-card-title>Multiples of a number</ion-card-title>
   <ion-card-content>
     <ion-text>This app will help you found if a given number is a multiple of 3, 5 and 7</ion-text>
+
+    <!--Basic form to validate number input-->
     <form [formGroup]="numberForm" novalidate (ngSubmit)="onSubmit()">
       <div class="form-group">
         <ion-item fill="outline" class="ion-margin-top">
@@ -21,6 +23,8 @@
       </div>
       <ion-button class="ion-margin-top ion-margin-bottom" type="submit"> Calculate </ion-button>
     </form>
+
+    <!--This is the display of the result-->
     <div *ngIf="selectedMultiple.number > 0" class="ion-padding">
       <ion-text class="result-text">Result for:</ion-text>
       <ion-text class="{{ classColor }} result-text">{{ selectedMultiple.number }}</ion-text>
