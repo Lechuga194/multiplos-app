@@ -5,10 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class MultipleService {
+export class RecordService {
   constructor(private firestore: Firestore) {}
 
-  saveMultiple(multipleData: Multiple) {
+  saveRecord(multipleData: Multiple) {
     const multipleRef = collection(this.firestore, 'multiple');
     return addDoc(multipleRef, multipleData);
   }

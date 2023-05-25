@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Multiple } from '@app/interfaces/multiple';
 import isMultiple from '../utils/Multiple';
-import { MultipleService } from '@app/services/multiple.service';
+import { RecordService } from '@app/services/record.service';
 import getMultipleClassColor from '@app/utils/GetMultipleClassColor';
 
 @Component({
@@ -13,7 +13,7 @@ export class MultipleVisualizationComponent implements OnInit {
   @Input() inputNumber: number = 0;
   selectedMultiple: Multiple = {} as Multiple;
   classColor = '';
-  constructor(private multipleService: MultipleService) {}
+  constructor(private multipleService: RecordService) {}
 
   ngOnInit(): void {}
 
@@ -22,7 +22,7 @@ export class MultipleVisualizationComponent implements OnInit {
     const multiples = isMultiple(n, [3, 5, 7]);
     //We create the object with the petition and the result
     const multipleData: Multiple = { number: n, multiples };
-    await this.multipleService.saveMultiple(multipleData);
+    await this.multipleService.saveRecord(multipleData);
     this.selectedMultiple = multipleData;
     this.classColor = getMultipleClassColor(multiples[0]);
   }

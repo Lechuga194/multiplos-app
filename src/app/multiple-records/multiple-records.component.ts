@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MultipleService } from '@app/services/multiple.service';
+import { RecordService } from '@app/services/record.service';
 import { Multiple } from '@app/interfaces/multiple';
 import { sortArrayOfObjectsByNumericProperty } from '@app/utils/Arrays';
 
@@ -9,7 +9,7 @@ import { sortArrayOfObjectsByNumericProperty } from '@app/utils/Arrays';
   styleUrls: ['./multiple-records.component.scss'],
 })
 export class MultipleRecordsComponent implements OnInit {
-  constructor(private multipleService: MultipleService) {}
+  constructor(private multipleService: RecordService) {}
   records: Multiple[] = [];
 
   ngOnInit(): void {
