@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecordService } from '@app/services/record.service';
 import { Multiple } from '@app/interfaces/multiple';
 import { sortArrayOfObjectsByNumericProperty } from '@app/utils/Arrays';
+import getMultipleClassColor from '@app/utils/GetMultipleClassColor';
 
 @Component({
   selector: 'app-multiple-records',
@@ -23,4 +24,5 @@ export class MultipleRecordsComponent implements OnInit {
   }
 
   protected readonly Number = Number;
+  protected readonly getMultipleClassColor = getMultipleClassColor;
 }
