@@ -22,9 +22,8 @@
       <ion-button class="ion-margin-top ion-margin-bottom" type="submit"> Calculate </ion-button>
     </form>
     <div *ngIf="selectedMultiple.number > 0" class="ion-padding">
-      <ion-text color="primary">
-        <h2>Results for {{ selectedMultiple.number }}</h2>
-      </ion-text>
+      <ion-text class="result-text">Result for:</ion-text>
+      <ion-text class="{{ classColor }} result-text">{{ selectedMultiple.number }}</ion-text>
     </div>
     <div *ngIf="selectedMultiple.number">
       <div *ngIf="selectedMultiple.multiples?.length; else noMultipleMessage">
