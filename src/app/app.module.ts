@@ -15,6 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { MultipleVisualizationComponent } from './multiple-visualization/multiple-visualization.component';
+import { MultipleRecordsComponent } from './multiple-records/multiple-records.component';
 
 @NgModule({
   imports: [
@@ -32,7 +34,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()), // must be imported as the last module as it contains the fallback route
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, MultipleVisualizationComponent, MultipleRecordsComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
