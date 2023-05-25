@@ -10,10 +10,18 @@
             </ion-col>
             <ion-col>
               <ion-text>Result:</ion-text>
-              <ion-text class="{{ getMultipleClassColor(record.multiples[0]) }}"> [{{ record.multiples }}] </ion-text>
+              <ion-text
+                class="{{ getMultipleClassColor(record.multiples[0]) }}"
+                *ngIf="record.multiples.length; else noResultMessage"
+              >
+                [{{ record.multiples }}]
+              </ion-text>
+              <ng-template #noResultMessage>
+                <ion-text>None</ion-text>
+              </ng-template>
             </ion-col>
           </ion-grid>
-          <ion-button (click)="onDeleteRecord(record)"> Remove </ion-button>
+          <ion-button (click)="onDeleteRecord(record)" color="danger"> Remove </ion-button>
         </ion-item>
       </ion-list>
     </ion-card-content>
